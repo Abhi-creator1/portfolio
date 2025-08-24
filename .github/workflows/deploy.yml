@@ -24,12 +24,8 @@ jobs:
       - name: Build app
         run: npm run build
 
-      - name: Configure Git for gh-pages
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Deploy to GitHub Pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages   # branch the site will be deployed to
+          folder: build      # folder with the built files
