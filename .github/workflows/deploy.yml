@@ -3,7 +3,7 @@ name: Deploy React App to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main   # <-- deploys when you push to main
 
 jobs:
   build-deploy:
@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false   # avoid auth conflicts
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -27,5 +29,7 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages   # branch the site will be deployed to
-          folder: build      # folder with the built files
+          branch: gh-pages    # target branch
+          folder: build       # React build output
+          clean: true         # remove old files
+          token: ${{ secrets.GITHUB_TOKEN }}
