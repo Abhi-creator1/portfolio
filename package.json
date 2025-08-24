@@ -2,7 +2,7 @@
 "name": "portfolio",
 "version": "1.0.0",
 "private": true,
-"homepage": "https://Abhi-creator1.github.io/portfolio",
+"homepage": "https://abhi-creator1.github.io/portfolio",
 "dependencies": {
 "framer-motion": "^10.12.16",
 "lucide-react": "^0.261.0",
